@@ -2,3 +2,18 @@
     margin: auto;
     text-align: center;
 }
+
+.button {
+    text-align: center;
+    font-family: 'Trebuchet MS';
+}
+.button:hover {
+    background-color: rgb(126, 221, 255);
+}
+
+.name {
+    font-family: 'Trebuchet MS';
+}
+.text {
+    font-family: 'Trebuchet MS';
+}
