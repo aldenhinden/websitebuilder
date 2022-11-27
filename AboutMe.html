@@ -2,6 +2,46 @@
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
+
+        <style>
+            /* Next & previous buttons */
+            .prev, .next {
+                cursor: pointer;
+                width: auto;
+                color: #717171;
+                font-weight: bold;
+                font-size: 30px;
+                transition: 0.6s ease;
+                user-select: none;
+            }
+
+            /* The dots/bullets/indicators */
+            .dot {
+                cursor: pointer;
+                height: 20px;
+                width: 20px;
+                margin: 0 2px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+
+            .active, .dot:hover {
+                background-color: #717171;
+            }
+
+            .prev:hover, .next:hover {
+                color: rgba(193, 193, 193, 0.8);
+            }
+
+            .slidetext {
+                text-align: center;
+                font-family: Courier;
+                font-size: small;
+            }
+
+        </style>
     </head>
 
     <body style="background-color:#FAF9F6">
@@ -9,19 +49,96 @@
             <!-- TITLE -->
             <h1 class="name">About Me</h1>
 
+            <!-- PICTURE SLIDESHOW -->
+            <div>
+                <div class="slideshow-container">
+                    
+                    <!-- slides -->
+                    <div class="mySlides fade">
+                    <img src="images/me.jpeg" style="width:392px;height:290px;">
+                    <div class="slidetext">Me in the fall.</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                    <img src="images/westport_wave.png" style="width:518;height:290px;">
+                    <div class="slidetext">Surfing winter waves at Westport, WA.</div>
+                    </div>
+                    
+                    <div class="mySlides fade">
+                    <img src="images/lightning.jpeg" style="width:471;height:290px;">
+                    <div class="slidetext">Photo taken in a thunder storm in Nicaragua.</div>
+                    </div>
+                    
+                </div>
+                <br>
+                
+                <!-- current slide dots-->
+                <div style="text-align:center">
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+
+                    <span class="dot" onclick="currentSlide(1)"></span> 
+                    <span class="dot" onclick="currentSlide(2)"></span> 
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+
+                <!-- JAVASCRIPT FOR SLIDESHOW FN-->
+                <script>
+                let slideIndex = 1;
+                showSlides(slideIndex);
+                
+                function plusSlides(n) {
+                    showSlides(slideIndex += n);
+                }
+                
+                function currentSlide(n) {
+                    showSlides(slideIndex = n);
+                }
+                
+                function showSlides(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("mySlides");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {slideIndex = 1}    
+                    if (n < 1) {slideIndex = slides.length}
+                    for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex-1].style.display = "block";  
+                    dots[slideIndex-1].className += " active";
+                }
+                </script>
+            </div>
+            <br>
+
             <!-- DESCRIPTION -->
-            <p class="text center" style="text-align: left;">
+            <br>
+            <p class="mytext center" style="text-align: left;">
                 Born in The Bronx, NYC, I grew up on Vashon, a small island in the Pacific Northwest 
                 between the cities of Seattle and Tacoma. I spent my childhood in wilderness programs, 
                 my passion for the outdoors remaining indissoluble throughout my life. I love hiking, 
                 surfing, snowboarding, and all the adventures that are found in their persuit. 
-                My favorite sport is soccer, and my favorite player is Lionel Messi. 
+                My favorite sport is soccer, having played it my whole life, and my favorite player is Lionel Messi. 
+                I also love to cook and have recently found a passion for boxing. 
             </p>
             <br>
-            <p class="text center" style="text-align: left;">
-                I have always had a passion for music, playing piano for many years as a child and more 
+            <p class="mytext center" style="text-align: left;">
+                I have always been passionate about music, playing piano for many years as a child and more 
                 recently picking up the guitar. My love blues and rock the most, with my favorite musicians 
-                being Jimi Hendrix, Eric Clapton, Stevie Ray Vaughan, and John Mayer. 
+                being Jimi Hendrix, Eric Clapton, Stevie Ray Vaughan, and John Mayer. I mostly play with a 
+                looper, but I am always looking to jam with other people! I have played one performance with a friend of mine, 
+                doing covers of a few songs in front of a live audience.
+            </p>
+            <br>
+            <p class="mytext center" style="text-align: left;">
+                I have held various volunteer positions in my community and beyond, the most impactful of which I 
+                would recount being my time as an apprentice at the Vashon Wilderness program as well the three 
+                months I spent in northwest Nicaragua. During my time in Madriz, NI, I lived in the rural village of 
+                La Dalia, inhabited by a joyful group, whose
             </p>
         </div>
     </body>
