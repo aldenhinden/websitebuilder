@@ -20,3 +20,9 @@
     width: 750px;
     text-indent: 30px;
 }
+.projtitle {
+    font-family: 'Trebuchet MS';
+    text-align: center;
+    width: 750px;
+    font-size: larger;
+}
